@@ -1,3 +1,10 @@
+<?php 
+
+
+session_start();
+
+?>
+
 <html>
 
 
@@ -62,11 +69,15 @@ body{
     <div>
   <?php
   
-    if(session_status() == PHP_SESSION_NONE){
+    if(!(isset($_SESSION['userName']))){
 
         echo '<a href="' . $rootUrl . 'login"><button>Login</button></a>';
 
         echo '<a href="' . $rootUrl . 'register"><button>Inscription</button></a>';
+
+    } else {
+
+        echo '<a href="' . $rootUrl . 'logout"><button>Logout</button></a>';
 
     }
 

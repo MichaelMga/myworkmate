@@ -6,7 +6,7 @@
 
     <input type="text" name='newUserName' placeholder = 'username'>
 
-    <input type="password" placeholder='password'>
+    <input type="password" name = 'password' placeholder='password'>
 
     <input type="password" placeholder='confirm password'>
 

@@ -9,11 +9,12 @@ if(isset($_POST[('createNewUser')])){
 
     $newUserName = $_POST[('newUserName')];
 
+    $password = $_POST[('password')];
+
+
    //CHECK IF THE USER ALREADY EXISTS
 
     $sql = 'SELECT * FROM users';
-
-    $sql2='INSERT INTO users(name) VALUES ("phil") ';
 
 
     $nameAlreadyUsed = false;
@@ -57,17 +58,27 @@ if(isset($_POST[('createNewUser')])){
         if($nameAlreadyUsed == true){
 
             echo 'désolé, ce nom est déjà utilisé';
-        } else {
 
 
-            $sql = 'INSERT INTO users(name) VALUES("'. $newUserName . '")';
+        } else {    
+
+
+            //HASH THE GIVEN PASSWORD USING BCRYPT, AND INSERT INTO INTO THE DATABASE
+
+
+            $hash = password_hash($password , PASSWORD_BCRYPT);
+
+
+            $sql = 'INSERT INTO users(name, password) VALUES("'. $newUserName . '" , "' . $hash . '")';
+
+
 
 
             $stmt = $db->prepare($sql);
 
 
             $stmt->execute();
-
+            
 
             echo 'ok, ' . '"' . $newUserName . '"';
 

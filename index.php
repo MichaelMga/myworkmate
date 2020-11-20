@@ -1,16 +1,14 @@
 <?php
 
+   require 'controllers/mainController.php';
+   require_once 'constants.php';
 
-   $request = $_SERVER['REQUEST_URI'];
+
 
    $rootUrl = "http://localhost/myworkmate/";
+   $request = $_SERVER['REQUEST_URI'];
 
 
-   
-
-   require 'controllers/mainController.php';
-
-   require_once 'constants.php';
 
    require_once 'views/header.php';
 
@@ -45,6 +43,13 @@ switch($request){
 
 
     break;
+
+
+
+    case root . 'logout' :
+
+
+      logout();
 
 
 
