@@ -1,18 +1,51 @@
 <?php
 
-require 'header.php';
 
-?>
+   $request = $_SERVER['REQUEST_URI'];
 
-<h1>Bienvenue chez vous</h1>
-
+   $rootUrl = "http://localhost/myworkmate/";
 
 
+   
+
+   require 'controllers/mainController.php';
+
+   require_once 'constants.php';
+
+   require_once 'views/header.php';
 
 
-<?php
-require 'footer.php';
 
-?>
+ 
 
 
+switch($request){
+
+    case root :
+
+        require 'views/welcome.php';
+
+        break;
+
+   
+   case root . 'login' :
+
+     echo 'login';
+
+        require 'views/login.php';
+
+
+   break;
+
+
+   
+   case root . 'register' :
+
+    require 'views/register.php';
+
+
+    break;
+
+
+
+   }
