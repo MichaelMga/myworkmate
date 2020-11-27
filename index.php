@@ -2,6 +2,7 @@
 
    require 'controllers/mainController.php';
    require_once 'constants.php';
+   
 
 
 
@@ -28,13 +29,16 @@ switch($request){
    
    case root . 'login' :
 
-     echo 'login';
-
         require 'views/login.php';
 
 
    break;
 
+   case root . 'session1' :
+
+      require 'views/session1.php';
+
+   break;
 
    
    case root . 'register' :

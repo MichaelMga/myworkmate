@@ -2,6 +2,9 @@
 
 require 'connexion.php';
 
+require '../constants.php';
+
+
 
 
 //CHECK IF THE USER EXISTS
@@ -32,8 +35,8 @@ if(isset($_POST['userName'])){
         $stmt = $db->prepare($sql);
         $stmt->execute();
     
-        
     
+
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     
             //an array is actually rendered for each line
@@ -42,6 +45,8 @@ if(isset($_POST['userName'])){
 
             $password = $row['password'];
             
+
+
     
             if($name == $userName){
 
@@ -54,12 +59,14 @@ if(isset($_POST['userName'])){
 
 
     
-    
                 //START A NEW SESSION
     
-             session_start ();
+             session_start();
         
-	          $_SESSION['userName'] = $userName;
+              $_SESSION['userName'] = $userName;
+              
+
+              header('Location:' . root);
                     
               
             }
